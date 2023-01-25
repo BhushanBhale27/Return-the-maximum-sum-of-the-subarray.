@@ -1,0 +1,52 @@
+'use strict';
+
+process.stdin.setEncoding('utf-8');
+
+function find_maximum_subarray(arr,length){
+    /*write the code to find the maximum subarray sum
+    only return the maximum sum of the subarray . 
+    Both array and size of array is given */
+
+    var max_sum=arr[0];
+    for(var i=0;i<arr.length;i++)
+    {
+        var prev_sum=0;
+        for(var j=i;j<arr.length;j++)
+        {
+            prev_sum=prev_sum+arr[j];
+            
+            if(prev_sum>max_sum)
+            {
+                max_sum=prev_sum;
+            }
+        }
+        
+       
+    }
+    return max_sum; 
+    
+   
+    
+    
+}
+
+//Dont change anything below. If changed click on reset.
+async function readInput() {
+        let inputString = '';
+        let arr = [];
+        process.stdin.on('data', inputStdin => {
+            inputString += inputStdin;
+            const inputArr = inputString.split(/(?:\r\n|\r|\n)/g)
+            // console.log(inputArr);
+            var n=parseInt(inputArr[0]);
+            for (var i=0;i<n;i++)
+            {
+                arr.push(parseInt(inputArr[i+1]))
+            }
+            console.log(find_maximum_subarray(arr,n))
+            process.exit();
+
+        })
+
+}
+readInput();

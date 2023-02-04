@@ -1,0 +1,10 @@
+let arr=[1,2,5,6,9,8]
+let max_sum=0
+let current_sum=0
+
+for(let i=0;i<arr.length;i++) {
+    current_sum=Math.max(current_sum+arr[i], 0)
+    max_sum=Math.max(max_sum, current_sum)
+}
+
+console.log(max_sum);
